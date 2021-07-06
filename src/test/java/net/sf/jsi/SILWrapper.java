@@ -72,7 +72,7 @@ public class SILWrapper implements SpatialIndex {
     int minNodeEntries = Integer.parseInt(props.getProperty("MinNodeEntries", "0"));
     int maxNodeEntries = Integer.parseInt(props.getProperty("MaxNodeEntries", "0"));
     
-    float fillFactor = (float) minNodeEntries / (float) maxNodeEntries;
+    double fillFactor = (double) minNodeEntries / (double) maxNodeEntries;
     
     // create a memory-based storage manager
     storageManager = new MemoryStorageManager();
@@ -101,18 +101,18 @@ public class SILWrapper implements SpatialIndex {
   }
 
   /**
-   * @see net.sf.jsi.SpatialIndex#nearest(Point p, gnu.trove.TIntProcedure ip, float)
+   * @see net.sf.jsi.SpatialIndex#nearest(Point p, gnu.trove.TIntProcedure ip, double)
    */
-  public void nearest(Point p, TIntProcedure v, float furthestDistance) {
+  public void nearest(Point p, TIntProcedure v, double furthestDistance) {
     tree.nearestNeighborQuery(1, 
                               new sil.spatialindex.Point(new double[] {p.x, p.y}),  
                               new IntProcedureVisitor(v));
   }
 
   /**
-   * @see net.sf.jsi.SpatialIndex#nearestN(Point, gnu.trove.TIntProcedure, int, float)
+   * @see net.sf.jsi.SpatialIndex#nearestN(Point, gnu.trove.TIntProcedure, int, double)
    */
-  public void nearestN(Point p, TIntProcedure v, int n, float furthestDistance) {
+  public void nearestN(Point p, TIntProcedure v, int n, double furthestDistance) {
     tree.nearestNeighborQuery(n, 
                               new sil.spatialindex.Point(new double[] {p.x, p.y}),  
                               new IntProcedureVisitor(v));
@@ -121,9 +121,9 @@ public class SILWrapper implements SpatialIndex {
   /**
    * Same as nearestN
    * 
-   * @see net.sf.jsi.SpatialIndex#nearestNUnsorted(Point, gnu.trove.TIntProcedure, int, float)
+   * @see net.sf.jsi.SpatialIndex#nearestNUnsorted(Point, gnu.trove.TIntProcedure, int, double)
    */
-  public void nearestNUnsorted(Point p, TIntProcedure v, int n, float furthestDistance) {
+  public void nearestNUnsorted(Point p, TIntProcedure v, int n, double furthestDistance) {
     nearestN(p, v, n, furthestDistance);
   }
 

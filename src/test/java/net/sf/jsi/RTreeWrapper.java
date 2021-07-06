@@ -57,18 +57,18 @@ public class RTreeWrapper implements SpatialIndex {
   }
 
   /**
-   * @see net.sf.jsi.SpatialIndex#nearest(Point, gnu.trove.TIntProcedure, float)
+   * @see net.sf.jsi.SpatialIndex#nearest(Point, gnu.trove.TIntProcedure, double)
    */
-  public void nearest(Point p, TIntProcedure v, float furthestDistance) {
+  public void nearest(Point p, TIntProcedure v, double furthestDistance) {
     tree.nearest(new Point(p.x, p.y),
                  new IntProcedure2(v),
-                 Float.POSITIVE_INFINITY);
+                 Double.POSITIVE_INFINITY);
   }
   
   /**
-   * @see net.sf.jsi.SpatialIndex#nearestN(Point, gnu.trove.TIntProcedure, int, float)
+   * @see net.sf.jsi.SpatialIndex#nearestN(Point, gnu.trove.TIntProcedure, int, double)
    */
-  public void nearestN(Point p, TIntProcedure v, int n, float furthestDistance) {
+  public void nearestN(Point p, TIntProcedure v, int n, double furthestDistance) {
     tree.nearestN(new Point(p.x, p.y),
                  new IntProcedure2(v),
                  n,
@@ -76,9 +76,9 @@ public class RTreeWrapper implements SpatialIndex {
   }
 
   /**
-   * @see net.sf.jsi.SpatialIndex#nearestNUnsorted(Point, gnu.trove.TIntProcedure, int, float)
+   * @see net.sf.jsi.SpatialIndex#nearestNUnsorted(Point, gnu.trove.TIntProcedure, int, double)
    */
-  public void nearestNUnsorted(Point p, TIntProcedure v, int n, float furthestDistance) {
+  public void nearestNUnsorted(Point p, TIntProcedure v, int n, double furthestDistance) {
     tree.nearestNUnsorted(new Point(p.x, p.y),
                  new IntProcedure2(v),
                  n,

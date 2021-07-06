@@ -25,7 +25,7 @@ public class Point {
   /**
    * The (x, y) coordinates of the point.
    */
-  public float x, y;
+  public double x, y;
 
   /**
    * Constructor.
@@ -33,7 +33,7 @@ public class Point {
    * @param x The x coordinate of the point
    * @param y The y coordinate of the point
    */
-  public Point(float x, float y) {
+  public Point(double x, double y) {
     this.x = x;
     this.y = y;
   }
@@ -57,14 +57,14 @@ public class Point {
   /**
    * @return X coordinate rounded to an int
    */
-  public int xInt() {
+  public long xInt() {
     return Math.round(x);
   }
 
   /**
    * @return Y coordinate rounded to an int
    */
-  public int yInt() {
+  public long yInt() {
     return Math.round(y);
   }
 }
