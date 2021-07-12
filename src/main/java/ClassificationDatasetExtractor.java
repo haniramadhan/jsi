@@ -25,7 +25,7 @@ public class ClassificationDatasetExtractor {
 
         TrajUtil.loadTrajDatasetFromFile("../dataset/chengdu-tiny.csv");
         String dsName = "chengdu";
-        int trSize = 100;
+        int trSize = 1000;
         Distance.setParameters(0.003,3);
 
         List<Integer> sample = sampling(trSize, TrajUtil.trajectoryDataset.size());
